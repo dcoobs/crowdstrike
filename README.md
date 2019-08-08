@@ -3,7 +3,11 @@
 This module gives info on the CrowdStrike Falcon sensor for a given machine. The data comes from the `sysctl cs` command.
 ![CrowdStrike Listing](https://raw.githubusercontent.com/dcoobs/crowdstrike/master/images/CrowdStrikeListing.png)
 
-Included is a widget for sensor versions.
+Included are widgets for sensor versions:
+![Sensor Versions Widget](https://raw.githubusercontent.com/dcoobs/crowdstrike/master/images/sensorversion_widget.PNG)
+and for uninstall protection:
+
+![Uninstall Protection Widget](https://raw.githubusercontent.com/dcoobs/crowdstrike/master/images/uninstallprotection_widget.PNG)
 
 Table Schema
 ------
