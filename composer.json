@@ -1,0 +1,5 @@
+{
+    "name": "dcoobs/crowdstrike",
+    "description": "CrowdStrike Falcon module for munkireport.",
+    "license": "MIT"
+}

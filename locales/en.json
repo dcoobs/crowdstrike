@@ -1,0 +1,25 @@
+{
+    "link": "CrowdStrike Link",
+    "listing": {
+        "title": "CrowdStrike"
+    },
+    "report": {
+        "title": "CrowdStrike Report"
+    },
+    "widget": {
+        "title": "CrowdStrike",
+        "catalog": "Munki Catalogs",
+        "catalog_graph": "Munki Catalogs"
+    },
+    "client_tab": "CrowdStrike",
+    "crowdstrike": "CrowdStrike",
+    "customer_id": "Sensor CCID",
+    "disabled": "Disabled",
+    "enabled": "Enabled",
+    "installguard-widget": "CrowdStrike Uninstall Protection",
+    "report": "CrowdStrike Report",
+    "sensor_id": "Host ID",
+    "sensor_installguard": "Uninstall Protection",
+    "sensor_version": "Sensor Version",
+    "sensor-versions-widget": "CrowdStrike Sensor Versions"
+}
