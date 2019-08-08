@@ -16,8 +16,11 @@ class CrowdstrikeInit extends Migration
             $table->string('customer_id')->nullable();
             $table->integer('sensor_installguard')->nullable();
 
+            $table->index('serial_number');
             $table->index('sensor_id');
             $table->index('sensor_version');
+            $table->index('customer_id');
+            $table->index('sensor_installguard');
         });
     }
     
