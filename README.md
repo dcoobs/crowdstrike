@@ -1,2 +1,13 @@
-# crowdstrike
-CrowdStrike Falcon Module for Munkireport
+# CrowdStrike Falcon Module for Munkireport
+
+This module gives info on the CrowdStrike Falcon sensor for a given machine. The data comes from the `sysctl cs` command.
+![CrowdStrike Listing](https://raw.githubusercontent.com/dcoobs/crowdstrike/master/images/CrowdStrikeListing.png)
+
+Included is a widget for sensor versions.
+
+Table Schema
+------
+* sensor_id - VARCHAR(255) - Unique host ID of the client's sensor
+* sensor_version - VARCHAR(255) - Version of the client's sensor
+* customer_id - VARCHAR(255) - The customer ID checksum (CCID) for the sensor's instance
+* sensor_installguard - INT(11) - Boolean value for the sensor's uninstall protection policy. 1=Enabled 0=Disabled
