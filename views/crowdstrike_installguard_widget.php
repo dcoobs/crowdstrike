@@ -4,7 +4,7 @@
 
         <div class="panel-heading">
 
-            <h3 class="panel-title"><i class="fa fa-fire-extinguisher"></i>
+            <h3 class="panel-title"><i class="fa fa-shield"></i>
                 <span data-i18n="crowdstrike.installguard-widget"></span>
                 <list-link data-url="/show/listing/crowdstrike/crowdstrike"></list-link>
             </h3>
