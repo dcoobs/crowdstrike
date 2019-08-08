@@ -30,7 +30,7 @@
 <script>
 $(document).on('appReady', function(e, lang) {
 
-    // Get sentinelone data
+    // Get crowdstrike data
     $.getJSON( appUrl + '/module/crowdstrike/get_data/' + serialNumber, function( data ) {
             // Hide
             $('#crowdstrike-msg').text('');
