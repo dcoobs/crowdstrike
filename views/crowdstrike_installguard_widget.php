@@ -44,8 +44,10 @@ $(document).on('appUpdate', function(e, lang) {
         var url = appUrl + '/show/listing/crowdstrike/crowdstrike#'
 
         // Set urls
-        $('#sp-disabled').attr('href', url + encodeURIComponent('sensor_installguard = 0'));
-        $('#sp-enabled').attr('href', url + encodeURIComponent('sensor_installguard = 1'));
+        //$('#sp-disabled').attr('href', url + encodeURIComponent('sensor_installguard = 0'));
+        //$('#sp-enabled').attr('href', url + encodeURIComponent('sensor_installguard = 1'));
+        $('#sp-disabled').attr('href', url);
+        $('#sp-enabled').attr('href', url);
 
         // Show no clients span
         $('#sp-nodata').removeClass('disabled');
