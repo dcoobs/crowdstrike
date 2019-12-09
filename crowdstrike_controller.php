@@ -61,7 +61,7 @@ class Crowdstrike_controller extends Module_controller
 
         $crowdstrike_sensor_version_stats = new Crowdstrike_model();
 
-        $sql = "SELECT count(1) as count, sensor_version
+        $sql = "SELECT count(1) as count, substring(sensor_version,1,10) as sensor_version
             FROM crowdstrike
             LEFT JOIN reportdata USING (serial_number)
             ".get_machine_group_filter()."
