@@ -17,6 +17,7 @@
     "disabled": "Disabled",
     "enabled": "Enabled",
     "installguard-widget": "CrowdStrike Uninstall Protection",
+    "installguard-widget-tooltip": "Status of CrowdStrike sensor uninstall protection among all clients",
     "report": "CrowdStrike Report",
     "sensor_id": "Host ID",
     "sensor_installguard": "Uninstall Protection",
