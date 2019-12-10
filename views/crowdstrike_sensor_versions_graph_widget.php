@@ -2,7 +2,7 @@
 
     <div class="panel panel-default" id="crowdstrike-sensor-versions-graph-widget">
 
-        <div class="panel-heading">
+        <div class="panel-heading" data-container="body" data-i18n="[title]crowdstrike.sensor-versions-widget-tooltip">
             <h3 class="panel-title"><i class="fa fa-crosshairs"></i>
             <span data-i18n="crowdstrike.sensor-versions-graph-widget"></span>
             <list-link data-url="/show/listing/crowdstrike/crowdstrike"></list-link>
