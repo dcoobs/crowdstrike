@@ -2,7 +2,7 @@
 
     <div id="installguard-widget" class="panel panel-default">
 
-        <div class="panel-heading">
+        <div class="panel-heading" data-container="body" data-i18n="[title]crowdstrike.installguard-widget-tooltip">
 
             <h3 class="panel-title"><i class="fa fa-shield"></i>
                 <span data-i18n="crowdstrike.installguard-widget"></span>
