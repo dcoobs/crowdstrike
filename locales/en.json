@@ -22,5 +22,6 @@
     "sensor_installguard": "Uninstall Protection",
     "sensor_version": "Sensor Version",
     "sensor-versions-widget": "CrowdStrike Sensor Versions",
-    "sensor-versions--graph-widget": "CrowdStrike Sensor Versions"
+    "sensor-versions-widget-tooltip": "CrowdStrike sensor versions among all clients",
+    "sensor-versions-graph-widget": "CrowdStrike Sensor Versions"
 }
