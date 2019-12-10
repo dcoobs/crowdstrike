@@ -21,5 +21,6 @@
     "sensor_id": "Host ID",
     "sensor_installguard": "Uninstall Protection",
     "sensor_version": "Sensor Version",
-    "sensor-versions-widget": "CrowdStrike Sensor Versions"
+    "sensor-versions-widget": "CrowdStrike Sensor Versions",
+    "sensor-versions--graph-widget": "CrowdStrike Sensor Versions"
 }
