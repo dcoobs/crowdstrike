@@ -4,10 +4,10 @@ This module gives info on the CrowdStrike Falcon sensor for a given machine. The
 
 Version 3.0 is required for CrowdStrike sensor versions 6.11 and greater. Use version 2.3 for older sensor versions.
 
-![CrowdStrike Listing](https://raw.githubusercontent.com/dcoobs/crowdstrike/master/images/CrowdStrikeListing.png)
-Included are widgets for sensor versions:
-![Sensor Versions Widget](https://raw.githubusercontent.com/dcoobs/crowdstrike/master/images/sensorversion_widget.PNG)
-and for uninstall protection:
+![CrowdStrike Listing](https://raw.githubusercontent.com/dcoobs/crowdstrike/master/images/CrowdStrikeListing.png)  
+Included are widgets for sensor versions:  
+![Sensor Versions Widget](https://raw.githubusercontent.com/dcoobs/crowdstrike/master/images/sensorversion_widget.PNG)  
+and for uninstall protection:  
 ![Uninstall Protection Widget](https://raw.githubusercontent.com/dcoobs/crowdstrike/master/images/uninstallprotection_widget.PNG)
 
 Table Schema
