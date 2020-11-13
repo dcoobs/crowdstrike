@@ -37,7 +37,7 @@ class Crowdstrike_model extends \Model {
 
              $this->sensor_id = str_replace("-", "", strtolower($plist[agent_info]['agentID'])); # do some formatting so that output matchines CS console
              $this->sensor_version = $plist[agent_info]['version'];
-             $this->customer_id = $plist[agent_info]['customerID'];
+             $this->customer_id = str_replace("-", "", $plist[agent_info]['customerID']); # do some formatting so that output matchines CS console
              $this->sensor_installguard = $plist[agent_info]['sensor_installguard'];
              $this->save();
          }
