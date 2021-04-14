@@ -3,6 +3,7 @@
 $this->view('listings/default',
 [
   "i18n_title" => 'crowdstrike.listing.title',
+  "not_null_column" => 'crowdstrike.sensor_version',
   "table" => [
     [
       "column" => "machine.computer_name",
