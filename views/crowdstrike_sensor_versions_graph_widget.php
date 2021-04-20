@@ -22,9 +22,22 @@
 <script>
 $(document).on('appReady', function(e, lang) {
 
+    <?php 
+        $graph_margins = ['top' => 0, 'right' => 0, 'bottom' => 20, 'left' => 80];
+
+        if(isset($margin) && is_array($margin)){
+            $graph_margins = array_merge($graph_margins, $margin);
+        }
+        
+        if( ! isset($margin) || ! is_string($margin)){
+            $margin = json_encode($graph_margins);
+        }
+    ?>
+
     var conf = {
         url: appUrl + '/module/crowdstrike/get_crowdstrike_sensor_version_stats',
         widget: 'crowdstrike-sensor-versions-graph-widget',
+        margin: <?=$margin?>,
         elementClickCallback: function(e){
             var label = mr.integerToVersion(e.data.label);
             window.location.href = appUrl + '/show/listing/crowdstrike/crowdstrike#' + label;
