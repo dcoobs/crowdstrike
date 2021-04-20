@@ -23,7 +23,7 @@
 $(document).on('appReady', function(e, lang) {
 
     <?php 
-        $graph_margins = ['top' => 0, 'right' => 0, 'bottom' => 20, 'left' => 80];
+        $graph_margins = ['top' => 20, 'right' => 10, 'bottom' => 20, 'left' => 80];
 
         if(isset($margin) && is_array($margin)){
             $graph_margins = array_merge($graph_margins, $margin);
