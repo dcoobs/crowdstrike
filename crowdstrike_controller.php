@@ -70,7 +70,8 @@ class Crowdstrike_controller extends Module_controller
 
         $out = [];
         foreach ($crowdstrike_sensor_version_stats->query($sql) as $obj) {
-            $obj->sensor_version = $obj->sensor_version ? $obj->sensor_version : '0';
+            if (is_null($obj->sensor_version)) {continue;}
+            $obj->sensor_version = $obj->sensor_version ? $obj->sensor_version : 'Unknown';
             $out[] = array('label' => $obj->sensor_version, 'count' => intval($obj->count));
         }
 
