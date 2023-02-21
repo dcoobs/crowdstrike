@@ -144,6 +144,28 @@ class Crowdstrike_controller extends Module_controller
     }
 
     /**
+     * Get sensor active stats
+     *
+     * @return void
+     * @author dcoobs
+     **/
+
+
+    public function get_crowdstrike_sensor_active_stats()
+    {
+        $obj = new View();
+        if(! $this->authorized()) {
+            $obj->view('json', array('msg' => array('error' => 'Not authenticated')));
+            return;
+        }
+        $crowdstrike_sensor_active_stats = new Crowdstrike_model();
+        $out = [];
+        $out['sensor_stats'] = $crowdstrike_sensor_active_stats->get_crowdstrike_sensor_active_stats();
+        $obj->view('json', array('msg' => $out));
+    }
+
+
+    /**
      * Get installguard/uninstall protection stats
      *
      * @return void
@@ -162,4 +184,6 @@ class Crowdstrike_controller extends Module_controller
         $out['stats'] = $crowdstrike_installguard_stats->get_crowdstrike_installguard_stats();
         $obj->view('json', array('msg' => $out));
     }
+
+    
 } //end of class
