@@ -37,12 +37,12 @@ class Crowdstrike_model extends \Model {
              $parser->parse($data);
              $plist = $parser->toArray();
 
-             $this->sensor_id = str_replace("-", "", strtolower($plist[agent_info]['agentID'])); # do some formatting so that output matchines CS console
-             $this->sensor_version = $plist[agent_info]['version'];
-             $this->customer_id = str_replace("-", "", $plist[agent_info]['customerID']); # do some formatting so that output matchines CS console
-             $this->sensor_operational = str_replace("-", "", $plist[agent_info]['sensor_operational']); # do some formatting so that output matchines CS console
-             $this->sensor_installguard = $plist[agent_info]['sensor_installguard'];
-             $this->sensor_active = $plist[agent_info]['sensor_active'];
+             $this->sensor_id = str_replace("-", "", strtolower($plist['agent_info']['agentID'])); # do some formatting so that output matchines CS console
+             $this->sensor_version = $plist['agent_info']['version'];
+             $this->customer_id = str_replace("-", "", $plist['agent_info']['customerID']); # do some formatting so that output matchines CS console
+             $this->sensor_operational = str_replace("-", "", $plist['agent_info']['sensor_operational']); # do some formatting so that output matchines CS console
+             $this->sensor_installguard = $plist['agent_info']['sensor_installguard'];
+             $this->sensor_active = $plist['agent_info']['sensor_active'];
              $this->save();
          }
 
