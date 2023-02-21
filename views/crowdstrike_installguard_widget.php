@@ -42,12 +42,14 @@ $(document).on('appUpdate', function(e, lang) {
         }
 
         var url = appUrl + '/show/listing/crowdstrike/crowdstrike#'
+        var url_active = appUrl + '/show/listing/crowdstrike/crowdstrike#protected'
+        var url_inactive = appUrl + '/show/listing/crowdstrike/crowdstrike#notprotected'
 
         // Set urls
-        //$('#sp-disabled').attr('href', url + encodeURIComponent('sensor_installguard = 0'));
-        //$('#sp-enabled').attr('href', url + encodeURIComponent('sensor_installguard = 1'));
-        $('#sp-disabled').attr('href', url);
-        $('#sp-enabled').attr('href', url);
+        //$('#sa-disabled').attr('href', url + encodeURIComponent('sensor_sensor-active = 0'));
+        //$('#sa-enabled').attr('href', url + encodeURIComponent('sensor_sensor-active = 1'));
+        $('#sp-disabled').attr('href', url_inactive);
+        $('#sp-enabled').attr('href', url_active);
 
         // Show no clients span
         $('#sp-nodata').removeClass('disabled');

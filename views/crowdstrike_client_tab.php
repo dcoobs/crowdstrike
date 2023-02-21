@@ -17,6 +17,10 @@
                     <th data-i18n="crowdstrike.customer_id"></th>
                     <td id="crowdstrike-customer_id"></td>
                 </tr>
+<tr>
+                    <th data-i18n="crowdstrike.sensor_active"></th>
+                    <td id="crowdstrike-sensor_active"></td>
+                </tr>
                 <tr>
                     <th data-i18n="crowdstrike.sensor_installguard"></th>
                     <td id="crowdstrike-sensor_installguard"></td>
@@ -40,6 +44,16 @@ $(document).on('appReady', function(e, lang) {
             $('#crowdstrike-sensor_id').text(data.sensor_id);
             $('#crowdstrike-sensor_version').text(data.sensor_version);
             $('#crowdstrike-customer_id').text(data.customer_id);
+            $('#crowdstrike-sensor_active').text(data.sensor_active);
+
+            if(data.sensor_active === "0" ) {
+                $('#crowdstrike-sensor_active').text("Inactive");
+            } else if(data.sensor_active === "1" ) {
+                $('#crowdstrike-sensor_active').text("Active");
+            } else{
+                 $('#crowdstrike-sensor_active').text(data.sensor_active);
+            } 
+
             $('#crowdstrike-sensor_installguard').text(data.sensor_installguard);
 
             if(data.sensor_installguard === "0" ) {
