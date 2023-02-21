@@ -29,5 +29,5 @@
     "sensor-versions-graph-widget": "CrowdStrike Sensor Versions",
     "os_version": "OS Version",
     "sensor-active-widget-tooltip": "Status of CrowdStrike sensor",
-    "sensor-active-widget": "CrowdStrike Sensor"
+    "sensor-active-widget": "CrowdStrike Sensor State"
 }
