@@ -17,6 +17,10 @@ $this->view('listings/default',
       "i18n_header" => "serial",
     ],
     [
+      "column" => "reportdata.long_username",
+      "i18n_header" => "reportdata.username",
+    ],
+    [
       "column" => "crowdstrike.sensor_id",
       "i18n_header" => "crowdstrike.sensor_id",
     ],
@@ -41,14 +45,14 @@ $this->view('listings/default',
       "filter" => "protect_state",
     ],
     [
-      "column" => "reportdata.timestamp",
-      "i18n_header" => "listing.checkin",
-      "formatter" => "timestampToMoment",
-    ],
-    [
       "column" => "machine.os_version",
       "i18n_header" => "crowdstrike.os_version",
       "formatter" => "osVersion",
+    ],
+    [
+      "column" => "reportdata.timestamp",
+      "i18n_header" => "listing.checkin",
+      "formatter" => "timestampToMoment",
     ],
     ]
 ]);

@@ -18,7 +18,6 @@ fi
 
 if [ -f $FALCONCTL ]; then
     echo "File exists"
-    defaults write "$OUTPUT_FILE" agent_info -dict-add temp "<string>$STAMP</string>"
 else
     echo "CS Falcon not found. Skipping"
     defaults delete /usr/local/munkireport/scripts/cache/crowdstrike.plist > /dev/null 2>&1
@@ -29,8 +28,9 @@ fi
 $FALCONCTL stats agent_info > /dev/null 2>&1
 if [ $? -ne 0 ]; then
     /bin/echo 'CS Falcon installed but not running on client'
-    defaults write "$OUTPUT_FILE" agent_info -dict-add sensor_active "<string>0</string>"
-    defaults write "$OUTPUT_FILE" agent_info -dict-add stamp "<string>$STAMP</string>"
+    # defaults write "$OUTPUT_FILE" agent_info -dict-add sensor_active "<string>0</string>"
+    # defaults write "$OUTPUT_FILE" agent_info -dict-add stamp "<string>$STAMP</string>"
+    defaults delete /usr/local/munkireport/scripts/cache/crowdstrike.plist > /dev/null 2>&1
     exit 0
 fi
 
