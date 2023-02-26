@@ -18,7 +18,7 @@ $this->view('listings/default',
     ],
     [
       "column" => "reportdata.long_username",
-      "i18n_header" => "reportdata.username",
+      "i18n_header" => "username",
     ],
     [
       "column" => "crowdstrike.sensor_id",
