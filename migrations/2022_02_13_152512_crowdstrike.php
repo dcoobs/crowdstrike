@@ -21,6 +21,7 @@ class Crowdstrike extends Migration
         $capsule::schema()->table($this->tableName, function (Blueprint $table) {
             $table->index('sensor_active');
             $table->index('sensor_operational');
+
         });
     }
     
