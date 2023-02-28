@@ -10,7 +10,7 @@
 
         <?php $widget->view($this, 'crowdstrike_sensor_versions_graph'); ?>
         <?php $widget->view($this, 'crowdstrike_installguard'); ?>
-        <?php $widget->view($this, 'crowdstrike_sensor_active'); ?>
+        <?php $widget->view($this, 'crowdstrike_sensor_operational'); ?>
 
     </div> <!-- /row -->
 
