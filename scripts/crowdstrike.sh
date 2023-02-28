@@ -8,7 +8,6 @@ CWD=$(dirname $0)
 CACHEDIR="$CWD/cache/"
 OUTPUT_FILE="${CACHEDIR}crowdstrike.plist"
 FALCONCTL="/Applications/Falcon.app/Contents/Resources/falconctl"
-STAMP=`date +%s`
 
 # Skip manual check
 if [ "$1" = 'manualcheck' ]; then
@@ -16,9 +15,12 @@ if [ "$1" = 'manualcheck' ]; then
 	exit 0
 fi
 
+# Create cache dir if it does not exist
+/bin/mkdir -p "${CACHEDIR}"
+
 if [ ! -f $FALCONCTL ]; then
     echo "CS Falcon not found. Skipping"
-    defaults delete /usr/local/munkireport/scripts/cache/crowdstrike.plist > /dev/null 2>&1
+    defaults delete "$OUTPUT_FILE" > /dev/null 2>&1
     exit 0
 fi
 
@@ -26,14 +28,10 @@ fi
 $FALCONCTL stats agent_info > /dev/null 2>&1
 if [ $? -ne 0 ]; then
     /bin/echo 'CS Falcon installed but not running on client'
-    # defaults write "$OUTPUT_FILE" agent_info -dict-add sensor_operational "<string>0</string>"
-    # defaults write "$OUTPUT_FILE" agent_info -dict-add stamp "<string>$STAMP</string>"
-    defaults delete /usr/local/munkireport/scripts/cache/crowdstrike.plist > /dev/null 2>&1
+    defaults delete "$OUTPUT_FILE" > /dev/null 2>&1
+    defaults write "$OUTPUT_FILE" agent_info -dict-add sensor_operational "<string>0</string>"
     exit 0
 fi
-
-# Create cache dir if it does not exist
-/bin/mkdir -p "${CACHEDIR}"
 
 # Gather standard CrowdStrike Falcon information and settings
 $FALCONCTL stats --plist agent_info > "$OUTPUT_FILE"
@@ -54,7 +52,6 @@ fi
 defaults write "$OUTPUT_FILE" agent_info -dict-add sensor_installguard "<string>$cs_sensor_installguard</string>"
 # Append sensor active data into plist file
 defaults write "$OUTPUT_FILE" agent_info -dict-add sensor_operational "<string>$sensor_operational</string>"
-defaults write "$OUTPUT_FILE" agent_info -dict-add stamp "<string>$STAMP</string>"
 
 # Correct file permissions on resulting plist to allow proper upload
 /bin/chmod 644 "$OUTPUT_FILE"
