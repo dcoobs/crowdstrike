@@ -46,8 +46,8 @@ $(document).on('appUpdate', function(e, lang) {
         var url_inactive = appUrl + '/show/listing/crowdstrike/crowdstrike#notprotected'
 
         // Set urls
-        //$('#sa-disabled').attr('href', url + encodeURIComponent('sensor_sensor-active = 0'));
-        //$('#sa-enabled').attr('href', url + encodeURIComponent('sensor_sensor-active = 1'));
+        //$('#sp-disabled').attr('href', url + encodeURIComponent('sensor_sensor-active = 0'));
+        //$('#sp-enabled').attr('href', url + encodeURIComponent('sensor_sensor-active = 1'));
         $('#sp-disabled').attr('href', url_inactive);
         $('#sp-enabled').attr('href', url_active);
 
