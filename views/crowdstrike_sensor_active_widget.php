@@ -16,11 +16,11 @@
 
             <a id="sa-disabled" class="btn btn-danger disabled">
                 <span class="sa-count bigger-150"></span><br>
-                <span data-i18n="crowdstrike.disabled"></span>
+                <span data-i18n="crowdstrike.no"></span>
             </a>
             <a id="sa-enabled" class="btn btn-success disabled">
                 <span class="sa-count bigger-150"></span><br>
-                <span data-i18n="crowdstrike.enabled"></span>
+                <span data-i18n="crowdstrike.yes"></span>
             </a>
 
             <span id="sa-nodata" data-i18n=""></span>
