@@ -11,6 +11,7 @@ class RemoveSensorOperational extends Migration
     {
         $capsule = new Capsule();
         $capsule::schema()->table('crowdstrike', function (Blueprint $table) {
+            $table->dropIndex('sensor_operational');
             $table->dropColumn('sensor_operational');
         });
     }
