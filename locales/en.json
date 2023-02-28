@@ -18,6 +18,7 @@
     "enabled": "Enabled",
     "installguard-widget": "CrowdStrike Uninstall Protection",
     "installguard-widget-tooltip": "Status of CrowdStrike sensor uninstall protection among all clients",
+    "os_version": "OS Version",
     "report": "CrowdStrike Report",
     "sensor_id": "Host ID",
     "sensor_active": "Sensor State",
@@ -26,7 +27,6 @@
     "sensor-versions-widget": "CrowdStrike Sensor Versions",
     "sensor-versions-widget-tooltip": "CrowdStrike sensor versions among all clients",
     "sensor-versions-graph-widget": "CrowdStrike Sensor Versions",
-    "os_version": "OS Version",
     "sensor-active-widget-tooltip": "Status of CrowdStrike sensor",
     "sensor-active-widget": "CrowdStrike Sensor State"
 }
