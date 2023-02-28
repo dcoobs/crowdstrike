@@ -35,7 +35,7 @@ $this->view('listings/default',
     [
       "column" => "crowdstrike.sensor_active",
       "i18n_header" => "crowdstrike.sensor_active",
-      "formatter" => "binaryEnabledDisabled",
+      "formatter" => "binaryYesNo",
       "filter" => "sensor_state",
     ],
     [
