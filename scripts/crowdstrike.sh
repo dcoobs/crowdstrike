@@ -26,7 +26,7 @@ fi
 $FALCONCTL stats agent_info > /dev/null 2>&1
 if [ $? -ne 0 ]; then
     /bin/echo 'CS Falcon installed but not running on client'
-    # defaults write "$OUTPUT_FILE" agent_info -dict-add sensor_active "<string>0</string>"
+    # defaults write "$OUTPUT_FILE" agent_info -dict-add sensor_operational "<string>0</string>"
     # defaults write "$OUTPUT_FILE" agent_info -dict-add stamp "<string>$STAMP</string>"
     defaults delete /usr/local/munkireport/scripts/cache/crowdstrike.plist > /dev/null 2>&1
     exit 0
@@ -45,15 +45,15 @@ else
 fi
 
 if $FALCONCTL stats agent_info | grep "Sensor operational: true" > /dev/null 2>&1; then
-    sensor_active=1
+    sensor_operational=1
 else
-    sensor_active=0
+    sensor_operational=0
 fi
 
 # Append uninstall protection data into plist file
 defaults write "$OUTPUT_FILE" agent_info -dict-add sensor_installguard "<string>$cs_sensor_installguard</string>"
 # Append sensor active data into plist file
-defaults write "$OUTPUT_FILE" agent_info -dict-add sensor_active "<string>$sensor_active</string>"
+defaults write "$OUTPUT_FILE" agent_info -dict-add sensor_operational "<string>$sensor_operational</string>"
 defaults write "$OUTPUT_FILE" agent_info -dict-add stamp "<string>$STAMP</string>"
 
 # Correct file permissions on resulting plist to allow proper upload
