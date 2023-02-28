@@ -27,6 +27,6 @@
     "sensor-versions-widget": "CrowdStrike Sensor Versions",
     "sensor-versions-widget-tooltip": "CrowdStrike sensor versions among all clients",
     "sensor-versions-graph-widget": "CrowdStrike Sensor Versions",
-    "sensor-active-widget-tooltip": "Status of CrowdStrike sensor",
-    "sensor-active-widget": "CrowdStrike Sensor Operational"
+    "sensor-operational-widget-tooltip": "Status of CrowdStrike sensor",
+    "sensor-operational-widget": "CrowdStrike Sensor Operational"
 }
