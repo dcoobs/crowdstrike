@@ -28,6 +28,4 @@ class RemoveSensorOperational extends Migration
             $table->index('sensor_operational');
         });
     }
-
-    }
 }
