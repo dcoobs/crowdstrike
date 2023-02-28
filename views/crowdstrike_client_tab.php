@@ -47,9 +47,9 @@ $(document).on('appReady', function(e, lang) {
             $('#crowdstrike-sensor_active').text(data.sensor_active);
 
             if(data.sensor_active === "0" ) {
-                $('#crowdstrike-sensor_active').text("Inactive");
+                $('#crowdstrike-sensor_active').text("No");
             } else if(data.sensor_active === "1" ) {
-                $('#crowdstrike-sensor_active').text("Active");
+                $('#crowdstrike-sensor_active').text("Yes");
             } else{
                  $('#crowdstrike-sensor_active').text(data.sensor_active);
             } 
