@@ -144,23 +144,23 @@ class Crowdstrike_controller extends Module_controller
     }
 
     /**
-     * Get sensor active stats
+     * Get sensor operational stats
      *
      * @return void
      * @author dcoobs
      **/
 
 
-    public function get_crowdstrike_sensor_active_stats()
+    public function get_crowdstrike_sensor_operational_stats()
     {
         $obj = new View();
         if(! $this->authorized()) {
             $obj->view('json', array('msg' => array('error' => 'Not authenticated')));
             return;
         }
-        $crowdstrike_sensor_active_stats = new Crowdstrike_model();
+        $crowdstrike_sensor_operational_stats = new Crowdstrike_model();
         $out = [];
-        $out['sensor_stats'] = $crowdstrike_sensor_active_stats->get_crowdstrike_sensor_active_stats();
+        $out['sensor_stats'] = $crowdstrike_sensor_operational_stats->get_crowdstrike_sensor_operational_stats();
         $obj->view('json', array('msg' => $out));
     }
 
