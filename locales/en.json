@@ -20,7 +20,6 @@
     "installguard-widget-tooltip": "Status of CrowdStrike sensor uninstall protection among all clients",
     "report": "CrowdStrike Report",
     "sensor_id": "Host ID",
-    "sensor_operational": "Active",
     "sensor_active": "Sensor State",
     "sensor_installguard": "Uninstall Protection",
     "sensor_version": "Sensor Version",
