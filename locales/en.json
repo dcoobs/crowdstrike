@@ -21,12 +21,12 @@
     "os_version": "OS Version",
     "report": "CrowdStrike Report",
     "sensor_id": "Host ID",
-    "sensor_active": "Sensor State",
+    "sensor_active": "Sensor Operational",
     "sensor_installguard": "Uninstall Protection",
     "sensor_version": "Sensor Version",
     "sensor-versions-widget": "CrowdStrike Sensor Versions",
     "sensor-versions-widget-tooltip": "CrowdStrike sensor versions among all clients",
     "sensor-versions-graph-widget": "CrowdStrike Sensor Versions",
     "sensor-active-widget-tooltip": "Status of CrowdStrike sensor",
-    "sensor-active-widget": "CrowdStrike Sensor State"
+    "sensor-active-widget": "CrowdStrike Sensor Operational"
 }
