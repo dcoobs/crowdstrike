@@ -1,11 +1,11 @@
 <div class="col-lg-4 col-md-6">
 
-    <div id="sensor-active-widget" class="panel panel-default">
+    <div id="sensor-operational-widget" class="panel panel-default">
 
-        <div class="panel-heading" data-container="body" data-i18n="[title]crowdstrike.sensor-active-widget-tooltip">
+        <div class="panel-heading" data-container="body" data-i18n="[title]crowdstrike.sensor-operational-widget-tooltip">
 
             <h3 class="panel-title"><i class="fa fa-shield"></i>
-                <span data-i18n="crowdstrike.sensor-active-widget"></span>
+                <span data-i18n="crowdstrike.sensor-operational-widget"></span>
                 <list-link data-url="/show/listing/crowdstrike/crowdstrike"></list-link>
             </h3>
 
@@ -34,7 +34,7 @@
 <script>
 $(document).on('appUpdate', function(e, lang) {
 
-    $.getJSON( appUrl + '/module/crowdstrike/get_crowdstrike_sensor_active_stats', function( data ) {
+    $.getJSON( appUrl + '/module/crowdstrike/get_crowdstrike_sensor_operational_stats', function( data ) {
 
         if(data.error){
             //alert(data.error);
@@ -46,8 +46,8 @@ $(document).on('appUpdate', function(e, lang) {
         var url_inactive = appUrl + '/show/listing/crowdstrike/crowdstrike#inactive'
 
         // Set urls
-        //$('#sa-disabled').attr('href', url + encodeURIComponent('sensor_sensor-active = 0'));
-        //$('#sa-enabled').attr('href', url + encodeURIComponent('sensor_sensor-active = 1'));
+        //$('#sa-disabled').attr('href', url + encodeURIComponent('sensor_sensor-operational = 0'));
+        //$('#sa-enabled').attr('href', url + encodeURIComponent('sensor_sensor-operational = 1'));
         $('#sa-disabled').attr('href', url_inactive);
         $('#sa-enabled').attr('href', url_active);
 
