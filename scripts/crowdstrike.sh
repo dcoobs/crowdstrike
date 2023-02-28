@@ -16,9 +16,7 @@ if [ "$1" = 'manualcheck' ]; then
 	exit 0
 fi
 
-if [ -f $FALCONCTL ]; then
-    echo "File exists"
-else
+if [ ! -f $FALCONCTL ]; then
     echo "CS Falcon not found. Skipping"
     defaults delete /usr/local/munkireport/scripts/cache/crowdstrike.plist > /dev/null 2>&1
     exit 0
