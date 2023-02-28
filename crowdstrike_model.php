@@ -12,7 +12,6 @@ class Crowdstrike_model extends \Model {
                 $this->rs['sensor_id'] = '';
                 $this->rs['sensor_version'] = '';
                 $this->rs['customer_id'] = '';
-                $this->rs['sensor_operational'] = '';
                 $this->rs['sensor_installguard'] = 0; //boolean
                 $this->rs['sensor_active'] = 0; //boolean
 
