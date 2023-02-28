@@ -7,20 +7,16 @@ class Crowdstrike extends Migration
 {
     private $tableName = 'crowdstrike';
 
-    
     public function up()
     {
         $capsule = new Capsule();
         $capsule::schema()->table($this->tableName, function (Blueprint $table) {
             $table->integer('sensor_active')->nullable();
-            $table->string('sensor_operational')->nullable();
-
         });
         
         // Create indexes
         $capsule::schema()->table($this->tableName, function (Blueprint $table) {
             $table->index('sensor_active');
-            $table->index('sensor_operational');
         });
     }
     
@@ -28,6 +24,8 @@ class Crowdstrike extends Migration
     {
         $capsule = new Capsule();
         $capsule::schema()->table('crowdstrike', function (Blueprint $table) {
+            $table->dropIndex('sensor_active');
             $table->dropColumn('sensor_active');
-        });    }
+        });
+    }
 }
