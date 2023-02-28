@@ -15,5 +15,5 @@ Table Schema
 * sensor_id - VARCHAR(255) - Unique host ID of the client's sensor
 * sensor_version - VARCHAR(255) - Version of the client's sensor
 * customer_id - VARCHAR(255) - The customer ID checksum (CCID) for the sensor's instance
-* sensor_active - VARCHAR(255) - Sensor operational
+* sensor_operational - VARCHAR(255) - Sensor operational status
 * sensor_installguard - INT(11) - Boolean value for the sensor's uninstall protection policy. 1=Enabled 0=Disabled
