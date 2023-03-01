@@ -13,6 +13,7 @@ class Crowdstrike_model extends \Model {
                 $this->rs['sensor_version'] = '';
                 $this->rs['customer_id'] = '';
                 $this->rs['sensor_installguard'] = 0; //boolean
+                $this->rs['sensor_operational'] = 0; //boolean
 
                 if ($serial) {
                     $this->retrieve_record($serial);
@@ -35,10 +36,11 @@ class Crowdstrike_model extends \Model {
              $parser->parse($data);
              $plist = $parser->toArray();
 
-             $this->sensor_id = str_replace("-", "", strtolower($plist[agent_info]['agentID'])); # do some formatting so that output matchines CS console
-             $this->sensor_version = $plist[agent_info]['version'];
-             $this->customer_id = str_replace("-", "", $plist[agent_info]['customerID']); # do some formatting so that output matchines CS console
-             $this->sensor_installguard = $plist[agent_info]['sensor_installguard'];
+             $this->sensor_id = str_replace("-", "", strtolower($plist['agent_info']['agentID'])); # do some formatting so that output matchines CS console
+             $this->sensor_version = $plist['agent_info']['version'];
+             $this->customer_id = str_replace("-", "", $plist['agent_info']['customerID']); # do some formatting so that output matchines CS console
+             $this->sensor_installguard = $plist['agent_info']['sensor_installguard'];
+             $this->sensor_operational = $plist['agent_info']['sensor_operational'];
              $this->save();
          }
 
@@ -50,4 +52,14 @@ class Crowdstrike_model extends \Model {
                  ".get_machine_group_filter();
              return current($this->query($sql));
          }
+
+         public function get_crowdstrike_sensor_operational_stats()
+         {
+             $sql = "SELECT COUNT(CASE WHEN sensor_operational = 1 THEN 1 END) as enabled, COUNT(CASE WHEN sensor_operational = 0 THEN 1 END) as 'disabled'
+                 FROM crowdstrike
+                 LEFT JOIN reportdata USING(serial_number)
+                 ".get_machine_group_filter();
+             return current($this->query($sql));
+         }
+
 }

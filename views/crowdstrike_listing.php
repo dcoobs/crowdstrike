@@ -4,6 +4,7 @@ $this->view('listings/default',
 [
   "i18n_title" => 'crowdstrike.listing.title',
   "not_null_column" => 'crowdstrike.sensor_version',
+  "js_link" => "module/crowdstrike/js/crowdstrike",
   "table" => [
     [
       "column" => "machine.computer_name",
@@ -14,6 +15,10 @@ $this->view('listings/default',
     [
       "column" => "reportdata.serial_number",
       "i18n_header" => "serial",
+    ],
+    [
+      "column" => "reportdata.long_username",
+      "i18n_header" => "username",
     ],
     [
       "column" => "crowdstrike.sensor_id",
@@ -28,9 +33,27 @@ $this->view('listings/default',
       "i18n_header" => "crowdstrike.customer_id",
     ],
     [
+      "column" => "crowdstrike.sensor_operational",
+      "i18n_header" => "crowdstrike.sensor_operational",
+      "formatter" => "binaryYesNo",
+      "filter" => "sensor_state",
+    ],
+    [
       "column" => "crowdstrike.sensor_installguard",
       "i18n_header" => "crowdstrike.sensor_installguard",
       "formatter" => "binaryEnabledDisabled",
+      "filter" => "protect_state",
     ],
-  ]
+    [
+      "column" => "machine.os_version",
+      "i18n_header" => "crowdstrike.os_version",
+      "formatter" => "osVersion",
+    ],
+    [
+      "column" => "reportdata.timestamp",
+      "i18n_header" => "listing.checkin",
+      "formatter" => "timestampToMoment",
+    ],
+    ]
 ]);
+
