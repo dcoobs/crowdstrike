@@ -7,7 +7,9 @@
 CWD=$(dirname $0)
 CACHEDIR="$CWD/cache/"
 OUTPUT_FILE="${CACHEDIR}crowdstrike.plist"
-FALCONCTL="/Applications/Falcon.app/Contents/Resources/falconctl"
+FALCON_APP="/Applications/Falcon.app/"
+FALCONCTL="${FALCON_APP}Contents/Resources/falconctl"
+FALCON_INFOPLIST="${FALCON_APP}Contents/Info.plist"
 
 # Skip manual check
 if [ "$1" = 'manualcheck' ]; then
@@ -29,6 +31,12 @@ $FALCONCTL stats agent_info > /dev/null 2>&1
 if [ $? -ne 0 ]; then
     /bin/echo 'CS Falcon installed but not running on client'
     defaults delete "$OUTPUT_FILE" > /dev/null 2>&1
+    if [ -f FALCON_INFOPLIST ]; then
+        $VERSION=$(defaults read "$FALCON_INFOPLIST" CFBundleShortVersionString) || true
+        if [ -z $VERSION ]; then
+	    defaults write "$OUTPUT_FILE" agent_info -dict-add version "<string>$VERSION</string>"
+	fi
+    fi
     defaults write "$OUTPUT_FILE" agent_info -dict-add sensor_operational "<string>0</string>"
     exit 0
 fi
@@ -50,7 +58,8 @@ fi
 
 # Append uninstall protection data into plist file
 defaults write "$OUTPUT_FILE" agent_info -dict-add sensor_installguard "<string>$cs_sensor_installguard</string>"
-# Append sensor active data into plist file
+
+# Append sensor operational data into plist file
 defaults write "$OUTPUT_FILE" agent_info -dict-add sensor_operational "<string>$sensor_operational</string>"
 
 # Correct file permissions on resulting plist to allow proper upload
