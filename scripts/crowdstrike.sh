@@ -32,7 +32,7 @@ if [ $? -ne 0 ]; then
     /bin/echo 'CS Falcon installed but not running on client'
     defaults delete "$OUTPUT_FILE" > /dev/null 2>&1
     if [ -f $FALCON_INFOPLIST ]; then
-        $VERSION=$(defaults read "$FALCON_INFOPLIST" CFBundleShortVersionString) || true
+        VERSION=$(defaults read "$FALCON_INFOPLIST" CFBundleShortVersionString || true)
         if [ -z $VERSION ]; then
 	    defaults write "$OUTPUT_FILE" agent_info -dict-add version "<string>$VERSION</string>"
 	fi
