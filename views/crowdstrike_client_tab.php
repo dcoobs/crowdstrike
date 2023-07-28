@@ -46,9 +46,9 @@ $(document).on('appReady', function(e, lang) {
             $('#crowdstrike-customer_id').text(data.customer_id);
             $('#crowdstrike-sensor_operational').text(data.sensor_operational);
 
-            if(data.sensor_operational === "0" ) {
+            if(data.sensor_operational == "0" ) {
                 $('#crowdstrike-sensor_operational').text("No");
-            } else if(data.sensor_operational === "1" ) {
+            } else if(data.sensor_operational == "1" ) {
                 $('#crowdstrike-sensor_operational').text("Yes");
             } else{
                  $('#crowdstrike-sensor_operational').text(data.sensor_operational);
@@ -56,9 +56,9 @@ $(document).on('appReady', function(e, lang) {
 
             $('#crowdstrike-sensor_installguard').text(data.sensor_installguard);
 
-            if(data.sensor_installguard === "0" ) {
+            if(data.sensor_installguard == "0" ) {
                 $('#crowdstrike-sensor_installguard').text("Disabled");
-            } else if(data.sensor_installguard === "1" ) {
+            } else if(data.sensor_installguard == "1" ) {
                 $('#crowdstrike-sensor_installguard').text("Enabled");
             } else{
                  $('#crowdstrike-sensor_installguard').text(data.sensor_installguard);
