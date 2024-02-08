@@ -24,33 +24,63 @@ class Crowdstrike_controller extends Module_controller
         echo "You've loaded the Crowdstrike module!";
     }
 
-    /**
-     * Get Crowdstrike information for serial_number
-     *
-     * @param string $serial serial number
-     **/
-    public function get_data($serial = '')
-    {
-        $out = [];
-        if (! $this->authorized()) {
-            $out['error'] = 'Not authorized';
-        } else {
-            $prm = new Crowdstrike_model;
-            foreach ($prm->retrieve_records($serial) as $crowdstrike) {
-                $out = $crowdstrike->rs;
-            }
-        }
 
-        $obj = new View();
-        $obj->view('json', array('msg' => $out));
+    /**
+     * Get data for scroll widget
+     *
+     * @return void
+     * @author tuxudo
+     **/
+    public function get_scroll_widget($column)
+    {
+        // Remove non-column name characters
+        $column = preg_replace("/[^A-Za-z0-9_\-]]/", '', $column);
+
+        $sql = "SELECT COUNT(CASE WHEN ".$column." <> '' AND ".$column." IS NOT NULL THEN 1 END) AS count, ".$column." 
+                    FROM crowdstrike
+                    LEFT JOIN reportdata USING (serial_number)
+                    ".get_machine_group_filter()."
+                    AND ".$column." <> '' AND ".$column." IS NOT NULL 
+                    GROUP BY ".$column."
+                    ORDER BY count DESC";
+
+        $queryobj = new Crowdstrike_model;
+        jsonView($queryobj->query($sql));
     }
 
     /**
-     * Get sensor version stats
+     * Get data for button widget
      *
      * @return void
-     * @author dcoobs
+     * @author tuxudo
      **/
+    public function get_button_widget($column)
+    {
+        // Remove non-column name characters
+        $column = preg_replace("/[^A-Za-z0-9_\-]]/", '', $column);
+
+        $sql = "SELECT COUNT(1) as total,
+                    COUNT(CASE WHEN ".$column." = 1 THEN 1 END) AS 'yes',
+                    COUNT(CASE WHEN ".$column." = 0 THEN 1 END) AS 'no'
+                    from crowdstrike
+                    LEFT JOIN reportdata USING (serial_number)
+                    WHERE ".get_machine_group_filter('');
+
+        $out = [];
+        $queryobj = new Crowdstrike_model();
+        foreach($queryobj->query($sql)[0] as $label => $value){
+                $out[] = ['label' => $label, 'count' => $value];
+        }
+
+        jsonView($out);
+    }
+
+    // /**
+    //  * Get sensor version stats
+    //  *
+    //  * @return void
+    //  * @author dcoobs
+    //  **/
 
     public function get_crowdstrike_sensor_version_stats()
     {
@@ -80,110 +110,23 @@ class Crowdstrike_controller extends Module_controller
     }
 
     /**
-     * Get sensor id stats
+     * Get Crowdstrike information for serial_number
      *
-     * @return void
-     * @author dcoobs
+     * @param string $serial serial number
      **/
-
-    public function get_crowdstrike_sensor_id_stats()
+    public function get_data($serial = '')
     {
-        if(! $this->authorized()) {
-            $obj->view('json', array('msg' => array('error' => 'Not authenticated')));
-            return;
-        }
-
-        $crowdstrike_sensor_id_stats = new Crowdstrike_model();
-
-        $sql = "SELECT count(1) as count, sensor_id
-            FROM crowdstrike
-            LEFT JOIN reportdata USING (serial_number)
-            ".get_machine_group_filter()."
-            GROUP BY sensor_id
-            ORDER BY sensor_id DESC";
-        
         $out = [];
-        foreach ($crowdstrike_sensor_id_stats->query($sql) as $obj) {
-            $obj->sensor_id = $obj->sensor_id ? $obj->sensor_id : '0';
-            $out[] = array('label' => $obj->sensor_id, 'count' => intval($obj->count));
+        if (! $this->authorized()) {
+            $out['error'] = 'Not authorized';
+        } else {
+            $prm = new Crowdstrike_model;
+            foreach ($prm->retrieve_records($serial) as $crowdstrike) {
+                $out = $crowdstrike->rs;
+            }
         }
+
         $obj = new View();
         $obj->view('json', array('msg' => $out));
     }
-
-    /**
-     * Get customer id stats
-     *
-     * @return void
-     * @author dcoobs
-     **/
-
-    public function get_crowdstrike_customer_id_stats()
-    {
-        if(! $this->authorized()) {
-            $obj->view('json', array('msg' => array('error' => 'Not authenticated')));
-            return;
-        }
-
-        $crowdstrike_customer_id_stats = new Crowdstrike_model();
-
-        $sql = "SELECT count(1) as count, customer_id
-            FROM crowdstrike
-            LEFT JOIN reportdata USING (serial_number)
-            ".get_machine_group_filter()."
-            GROUP BY customer_id
-            ORDER BY customer_id DESC";
-        
-        $out = [];
-        foreach ($crowdstrike_customer_id_stats->query($sql) as $obj) {
-            $obj->customer_id = $obj->customer_id ? $obj->customer_id : '0';
-            $out[] = array('label' => $obj->customer_id, 'count' => intval($obj->count));
-        }
-        $obj = new View();
-        $obj->view('json', array('msg' => $out));
-    }
-
-    /**
-     * Get sensor operational stats
-     *
-     * @return void
-     * @author dcoobs
-     **/
-
-
-    public function get_crowdstrike_sensor_operational_stats()
-    {
-        $obj = new View();
-        if(! $this->authorized()) {
-            $obj->view('json', array('msg' => array('error' => 'Not authenticated')));
-            return;
-        }
-        $crowdstrike_sensor_operational_stats = new Crowdstrike_model();
-        $out = [];
-        $out['sensor_stats'] = $crowdstrike_sensor_operational_stats->get_crowdstrike_sensor_operational_stats();
-        $obj->view('json', array('msg' => $out));
-    }
-
-
-    /**
-     * Get installguard/uninstall protection stats
-     *
-     * @return void
-     * @author dcoobs
-     **/
-
-    public function get_crowdstrike_installguard_stats()
-    {
-        $obj = new View();
-        if(! $this->authorized()) {
-            $obj->view('json', array('msg' => array('error' => 'Not authenticated')));
-            return;
-        }
-        $crowdstrike_installguard_stats = new Crowdstrike_model();
-        $out = [];
-        $out['stats'] = $crowdstrike_installguard_stats->get_crowdstrike_installguard_stats();
-        $obj->view('json', array('msg' => $out));
-    }
-
-    
 } //end of class

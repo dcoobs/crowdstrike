@@ -1,0 +1,21 @@
+client_tabs:
+    crowdstrike-tab:
+        view: crowdstrike_client_tab
+        i18n: crowdstrike.crowdstrike
+listings:
+    crowdstrike:
+        view: crowdstrike_listing
+        i18n: crowdstrike.crowdstrike
+reports:
+    crowdstrike:
+        view: crowdstrike_report
+        i18n: crowdstrike.report
+widgets:
+    crowdstrike_installguard:
+        view: crowdstrike_installguard_widget
+    crowdstrike_sensor_operational:
+        view: crowdstrike_sensor_operational_widget
+    crowdstrike_sensor_versions:
+        view: crowdstrike_sensor_versions_widget
+    crowdstrike_sensor_versions_graph:
+        view: crowdstrike_sensor_versions_graph_widget

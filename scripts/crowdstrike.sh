@@ -4,7 +4,7 @@
 
 # This is the clientside module for crowdstrike_status
 
-CWD=$(dirname $0)
+CWD=$(/usr/bin/dirname $0)
 CACHEDIR="$CWD/cache/"
 OUTPUT_FILE="${CACHEDIR}crowdstrike.plist"
 FALCON_APP="/Applications/Falcon.app/"
@@ -13,16 +13,13 @@ FALCON_INFOPLIST="${FALCON_APP}Contents/Info.plist"
 
 # Skip manual check
 if [ "$1" = 'manualcheck' ]; then
-	/bin/echo 'Manual check: skipping'
-	exit 0
+    /bin/echo 'Manual check: skipping'
+    exit 0
 fi
 
-# Create cache dir if it does not exist
-/bin/mkdir -p "${CACHEDIR}"
-
 if [ ! -f $FALCONCTL ]; then
-    echo "CS Falcon not found. Skipping"
-    defaults delete "$OUTPUT_FILE" > /dev/null 2>&1
+    /bin/echo "CS Falcon not found. Skipping"
+    /usr/bin/defaults delete "$OUTPUT_FILE" > /dev/null 2>&1
     exit 0
 fi
 
@@ -30,37 +27,37 @@ fi
 $FALCONCTL stats agent_info > /dev/null 2>&1
 if [ $? -ne 0 ]; then
     /bin/echo 'CS Falcon installed but not running on client'
-    defaults delete "$OUTPUT_FILE" > /dev/null 2>&1
+    /usr/bin/defaults delete "$OUTPUT_FILE" > /dev/null 2>&1
     if [ -f $FALCON_INFOPLIST ]; then
-        VERSION=$(defaults read "$FALCON_INFOPLIST" CFBundleShortVersionString || true)
+        VERSION=$(/usr/bin/defaults read "$FALCON_INFOPLIST" CFBundleShortVersionString || true)
         if [ -n $VERSION ]; then
-	    defaults write "$OUTPUT_FILE" agent_info -dict-add version "<string>$VERSION</string>"
-	fi
+            /usr/bin/defaults write "$OUTPUT_FILE" agent_info -dict-add version "<string>$VERSION</string>"
+        fi
     fi
-    defaults write "$OUTPUT_FILE" agent_info -dict-add sensor_operational "<string>0</string>"
+    /usr/bin/defaults write "$OUTPUT_FILE" agent_info -dict-add sensor_operational "<string>0</string>"
     exit 0
 fi
 
 # Gather standard CrowdStrike Falcon information and settings
 $FALCONCTL stats --plist agent_info > "$OUTPUT_FILE"
 
-if $FALCONCTL stats | grep installGuard | awk '{print $2}' | grep "Enabled" > /dev/null 2>&1; then
+if $FALCONCTL stats | /usr/bin/grep installGuard | /usr/bin/awk '{print $2}' | /usr/bin/grep "Enabled" > /dev/null 2>&1; then
     cs_sensor_installguard=1
 else
     cs_sensor_installguard=0
 fi
 
-if $FALCONCTL stats agent_info | grep "Sensor operational: true" > /dev/null 2>&1; then
+if $FALCONCTL stats agent_info | /usr/bin/grep "Sensor operational: true" > /dev/null 2>&1; then
     sensor_operational=1
 else
     sensor_operational=0
 fi
 
 # Append uninstall protection data into plist file
-defaults write "$OUTPUT_FILE" agent_info -dict-add sensor_installguard "<string>$cs_sensor_installguard</string>"
+/usr/bin/defaults write "$OUTPUT_FILE" agent_info -dict-add sensor_installguard "<string>$cs_sensor_installguard</string>"
 
 # Append sensor operational data into plist file
-defaults write "$OUTPUT_FILE" agent_info -dict-add sensor_operational "<string>$sensor_operational</string>"
+/usr/bin/defaults write "$OUTPUT_FILE" agent_info -dict-add sensor_operational "<string>$sensor_operational</string>"
 
 # Correct file permissions on resulting plist to allow proper upload
 /bin/chmod 644 "$OUTPUT_FILE"
