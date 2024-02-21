@@ -1,0 +1,15 @@
+type: button
+widget_id: installguard-widget
+api_url: /module/crowdstrike/get_button_widget/sensor_installguard
+i18n_title: crowdstrike.installguard-widget
+icon: fa-shield
+listing_link: /show/listing/crowdstrike/crowdstrike
+buttons:
+  - label: no
+    i18n_label: disabled
+    class: btn-danger
+    searchComponent: notprotected
+  - label: yes
+    i18n_label: enabled
+    class: btn-success
+    searchComponent: protected

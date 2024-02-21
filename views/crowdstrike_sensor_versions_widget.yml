@@ -1,0 +1,9 @@
+type: scrollbox
+widget_id: crowdstrike-sensor-versions-widget
+api_url: /module/crowdstrike/get_scroll_widget/sensor_version
+i18n_title: crowdstrike.sensor-versions-widget
+icon: fa-crosshairs
+listing_link: /show/listing/crowdstrike/crowdstrike
+search_key: sensor_version
+i18n_empty_result: no_clients
+badge: count

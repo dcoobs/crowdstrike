@@ -1,0 +1,7 @@
+row1:
+  crowdstrike_installguard:
+  crowdstrike_sensor_operational:
+  crowdstrike_sensor_versions:
+row2:
+  crowdstrike_sensor_versions_graph:
+    

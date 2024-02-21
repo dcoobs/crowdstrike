@@ -17,7 +17,7 @@
                     <th data-i18n="crowdstrike.customer_id"></th>
                     <td id="crowdstrike-customer_id"></td>
                 </tr>
-<tr>
+                <tr>
                     <th data-i18n="crowdstrike.sensor_operational"></th>
                     <td id="crowdstrike-sensor_operational"></td>
                 </tr>

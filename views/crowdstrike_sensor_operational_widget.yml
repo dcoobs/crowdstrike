@@ -1,0 +1,15 @@
+type: button
+widget_id: sensor-operational-widget
+api_url: /module/crowdstrike/get_button_widget/sensor_operational
+i18n_title: crowdstrike.sensor-operational-widget
+icon: fa-shield
+listing_link: /show/listing/crowdstrike/crowdstrike
+buttons:
+  - label: no
+    i18n_label: disabled
+    class: btn-danger
+    searchComponent: inactive
+  - label: yes
+    i18n_label: enabled
+    class: btn-success
+    searchComponent: active
