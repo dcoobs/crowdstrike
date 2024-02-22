@@ -8,8 +8,8 @@ buttons:
   - label: no
     i18n_label: disabled
     class: btn-danger
-    searchComponent: notprotected
+    search_component: notprotected
   - label: yes
     i18n_label: enabled
     class: btn-success
-    searchComponent: protected
+    search_component: protected

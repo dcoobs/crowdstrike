@@ -6,10 +6,10 @@ icon: fa-shield
 listing_link: /show/listing/crowdstrike/crowdstrike
 buttons:
   - label: no
-    i18n_label: disabled
+    i18n_label: no
     class: btn-danger
-    searchComponent: inactive
+    search_component: inactive
   - label: yes
-    i18n_label: enabled
+    i18n_label: yes
     class: btn-success
-    searchComponent: active
+    search_component: active
