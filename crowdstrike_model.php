@@ -58,10 +58,10 @@ class Crowdstrike_model extends \Model {
                     // version -> sensor_version
                     $this->sensor_version = $agent_info[$item];
                 // Process booleans
-                } else if (($item == "sensor_installguard" || $item == "sensor_operational") && $agent_info[$item] == "true") {
+                } else if (($item == "sensor_installguard" || $item == "sensor_operational") && ($agent_info[$item] == "1" || $agent_info[$item] == "true")) {
                     $this->$item = "1"; // Set boolean to true
-                } else if (($item == "sensor_installguard" || $item == "sensor_operational") && $agent_info[$item] == "false") {
-                    $this->$item = "0"; // Set boolean to true
+                } else if (($item == "sensor_installguard" || $item == "sensor_operational") && ($agent_info[$item] == "0" || $agent_info[$item] == "false")) {
+                    $this->$item = "0"; // Set boolean to false
                 }
             }
 
