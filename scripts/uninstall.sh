@@ -1,11 +1,10 @@
 #!/bin/bash
 
-MODULE_NAME="crowdstrike"
-MODULESCRIPT="crowdstrike.sh"
-MODULE_CACHE_FILE="crowdstrike.plist"
+# Remove crowdstrike script
+rm -f "${MUNKIPATH}preflight.d/crowdstrike.py"
 
-# Remove preflight script
-rm -f "${MUNKIPATH}preflight.d/${MODULESCRIPT}"
+# Remove legacy crowdstrike.sh if it exists
+rm -f "${MUNKIPATH}preflight.d/crowdstrike.sh"
 
-# Remove cache file
-rm -f "${CACHEPATH}${MODULE_CACHE_FILE}"
+# Remove crowdstrike.plist file
+rm -f "${CACHEPATH}crowdstrike.plist"

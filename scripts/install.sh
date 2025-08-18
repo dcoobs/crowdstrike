@@ -1,26 +1,26 @@
 #!/bin/bash
 
-MODULE_NAME="crowdstrike"
-MODULESCRIPT="crowdstrike.sh"
-MODULE_CACHE_FILE="crowdstrike.plist"
+# crowdstrike controller
+CTL="${BASEURL}index.php?/module/crowdstrike/"
 
-CTL="${BASEURL}index.php?/module/${MODULE_NAME}/"
+# Remove legacy crowdstrike.sh if it exists
+rm -f "${MUNKIPATH}preflight.d/crowdstrike.sh"
 
 # Get the scripts in the proper directories
-"${CURL[@]}" "${CTL}get_script/${MODULESCRIPT}" -o "${MUNKIPATH}preflight.d/${MODULESCRIPT}"
+"${CURL[@]}" "${CTL}get_script/crowdstrike.py" -o "${MUNKIPATH}preflight.d/crowdstrike.py"
 
 # Check exit status of curl
 if [ $? = 0 ]; then
-    # Make executable
-    chmod a+x "${MUNKIPATH}preflight.d/${MODULESCRIPT}"
+	# Make executable
+	chmod a+x "${MUNKIPATH}preflight.d/crowdstrike.py"
 
-    # Set preference to include this file in the preflight check
-	setreportpref $MODULE_NAME "${CACHEPATH}${MODULE_CACHE_FILE}"
+	# Set preference to include this file in the preflight check
+	setreportpref "crowdstrike" "${CACHEPATH}crowdstrike.plist"
 
 else
-    echo "Failed to download all required components!"
-    rm -f "${MUNKIPATH}preflight.d/${MODULESCRIPT}"
+	echo "Failed to download all required components!"
+	rm -f "${MUNKIPATH}preflight.d/crowdstrike.py"
 
-    # Signal that we had an error
-    ERR = 1
+	# Signal that we had an error
+	ERR=1
 fi

@@ -1,0 +1,20 @@
+type: button
+widget_id: crowdstrike-web-filter-active-button-widget
+api_url: /module/crowdstrike/get_crowdstrike_web_filter_active_button_counts
+i18n_title: crowdstrike.web_filter_active_title
+icon: fa-globe
+listing_link: /show/listing/crowdstrike/crowdstrike
+i18n_tooltip: crowdstrike.tooltips.web_filter_active
+buttons:
+  - label: "active"
+    i18n_label: yes
+    class: btn-success
+    search_component: web_filter_active_yes
+  - label: "inactive"
+    i18n_label: no
+    class: btn-danger
+    search_component: web_filter_active_inactive
+  - label: "unknown"
+    i18n_label: unknown
+    class: btn-warning
+    search_component: web_filter_active_unknown

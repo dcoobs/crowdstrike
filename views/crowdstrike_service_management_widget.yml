@@ -1,0 +1,20 @@
+type: button
+widget_id: crowdstrike-service-management-button-widget
+api_url: /module/crowdstrike/get_crowdstrike_service_management_button_counts
+i18n_title: crowdstrike.service_management_title
+icon: fa-cogs
+listing_link: /show/listing/crowdstrike/crowdstrike
+i18n_tooltip: crowdstrike.tooltips.service_management
+buttons:
+  - label: "configured"
+    i18n_label: yes
+    class: btn-success
+    search_component: service_management_yes
+  - label: "not_configured"
+    i18n_label: no
+    class: btn-danger
+    search_component: service_management_no
+  - label: "unknown"
+    i18n_label: unknown
+    class: btn-warning
+    search_component: service_management_unknown

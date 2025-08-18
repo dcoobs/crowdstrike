@@ -1,0 +1,20 @@
+type: button
+widget_id: crowdstrike-global-status-button-widget
+api_url: /module/crowdstrike/get_crowdstrike_global_status_button_counts
+i18n_title: crowdstrike.global_status_title
+icon: fa-check-circle-o
+listing_link: /show/listing/crowdstrike/crowdstrike
+i18n_tooltip: crowdstrike.tooltips.global_status
+buttons:
+  - label: "ok"
+    i18n_label: crowdstrike.global_status_ok
+    class: btn-success
+    search_component: global_status_ok
+  - label: "issues"
+    i18n_label: crowdstrike.global_status_issue
+    class: btn-danger
+    search_component: global_status_issue
+  - label: "unknown"
+    i18n_label: crowdstrike.global_status_unknown
+    class: btn-warning
+    search_component: global_status_unknown

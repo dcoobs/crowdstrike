@@ -1,0 +1,20 @@
+type: button
+widget_id: crowdstrike-cloud-connected-button-widget
+api_url: /module/crowdstrike/get_crowdstrike_cloud_connected_button_counts
+i18n_title: crowdstrike.cloud_connected_title
+icon: fa-cloud
+listing_link: /show/listing/crowdstrike/crowdstrike
+i18n_tooltip: crowdstrike.tooltips.cloud_connected
+buttons:
+  - label: "connected"
+    i18n_label: yes
+    class: btn-success
+    search_component: cloud_connected_yes
+  - label: "disconnected"
+    i18n_label: no
+    class: btn-danger
+    search_component: cloud_connected_no
+  - label: "unknown"
+    i18n_label: unknown
+    class: btn-warning
+    search_component: cloud_connected_unknown

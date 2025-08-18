@@ -1,0 +1,20 @@
+type: button
+widget_id: crowdstrike-team-id-valid-button-widget
+api_url: /module/crowdstrike/get_crowdstrike_team_id_valid_button_counts
+i18n_title: crowdstrike.team_id_valid_title
+icon: fa-users
+listing_link: /show/listing/crowdstrike/crowdstrike
+i18n_tooltip: crowdstrike.tooltips.team_id_valid
+buttons:
+  - label: "valid"
+    i18n_label: yes
+    class: btn-success
+    search_component: team_id_valid_yes
+  - label: "invalid"
+    i18n_label: no
+    class: btn-danger
+    search_component: team_id_valid_no
+  - label: "unknown"
+    i18n_label: unknown
+    class: btn-warning
+    search_component: team_id_valid_unknown

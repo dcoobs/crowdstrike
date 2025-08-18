@@ -1,0 +1,11 @@
+type: bargraph
+widget_id: crowdstrike-sensor-versions-graph-widget
+api_url: /module/crowdstrike/get_crowdstrike_sensor_version_stats
+i18n_title: crowdstrike.sensor_versions_title
+icon: fa-crosshairs
+i18n_tooltip: crowdstrike.tooltips.sensor_versions
+listing_link: /show/listing/crowdstrike/crowdstrike
+label_modifier: mr.integerToVersion(label)
+search_component: e.data.label
+margin: { top: 20, right: 10, bottom: 20, left: 80 }
+

@@ -1,0 +1,20 @@
+type: button
+widget_id: crowdstrike-rfm-status-button-widget
+api_url: /module/crowdstrike/get_crowdstrike_rfm_status_button_counts
+i18n_title: crowdstrike.rfm_status_title
+icon: fa-exclamation-triangle
+listing_link: /show/listing/crowdstrike/crowdstrike
+i18n_tooltip: crowdstrike.tooltips.rfm_status
+buttons:
+  - label: "active"
+    i18n_label: yes
+    class: btn-danger
+    search_component: rfm_status_yes
+  - label: "inactive"
+    i18n_label: no
+    class: btn-success
+    search_component: rfm_status_no
+  - label: "unknown"
+    i18n_label: unknown
+    class: btn-warning
+    search_component: rfm_status_unknown

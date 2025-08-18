@@ -1,0 +1,21 @@
+type: button
+widget_id: sensor-active-widget
+api_url: /module/crowdstrike/get_crowdstrike_sensor_active_button_counts
+i18n_title: crowdstrike.sensor_active_title
+icon: fa-power-off
+i18n_tooltip: crowdstrike.tooltips.sensor_active
+listing_link: /show/listing/crowdstrike/crowdstrike
+buttons:
+  - label: "active"
+    i18n_label: yes
+    class: btn-success
+    search_component: active
+  - label: "inactive"
+    i18n_label: no
+    class: btn-danger
+    search_component: inactive
+  - label: "unknown"
+    i18n_label: unknown
+    class: btn-warning
+    search_component: sensor_active_unknown
+
