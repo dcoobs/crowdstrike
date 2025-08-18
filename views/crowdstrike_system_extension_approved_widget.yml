@@ -1,0 +1,20 @@
+type: button
+widget_id: crowdstrike-system-extension-approved-button-widget
+api_url: /module/crowdstrike/get_crowdstrike_system_extension_approved_button_counts
+i18n_title: crowdstrike.system_extension_approved_title
+icon: fa-check-circle
+listing_link: /show/listing/crowdstrike/crowdstrike
+i18n_tooltip: crowdstrike.tooltips.system_extension_approved
+buttons:
+  - label: "approved"
+    i18n_label: yes
+    class: btn-success
+    search_component: system_extension_approved_yes
+  - label: "not_approved"
+    i18n_label: no
+    class: btn-danger
+    search_component: system_extension_approved_no
+  - label: "unknown"
+    i18n_label: unknown
+    class: btn-warning
+    search_component: system_extension_approved_unknown

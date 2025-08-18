@@ -1,7 +1,16 @@
 row1:
-  crowdstrike_installguard:
-  crowdstrike_sensor_operational:
-  crowdstrike_sensor_versions:
-row2:
+  crowdstrike_global_status:
+  crowdstrike_sensor_active:
+  crowdstrike_rfm_status:
+  crowdstrike_cloud_connected:
+  crowdstrike_heartbeat_active:
+  crowdstrike_sysext:
+  crowdstrike_network_filter_active:
+  crowdstrike_web_filter_active:
+  crowdstrike_uninstall_protection:
+  crowdstrike_full_disk_access:
+  crowdstrike_system_extension_approved:
+  crowdstrike_service_management:
+  crowdstrike_team_id_valid:
   crowdstrike_sensor_versions_graph:
-    
+

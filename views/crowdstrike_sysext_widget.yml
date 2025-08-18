@@ -1,0 +1,21 @@
+type: button
+widget_id: sysext-widget
+api_url: /module/crowdstrike/get_crowdstrike_sysext_button_counts
+i18n_title: crowdstrike.sysext_title
+icon: fa-puzzle-piece
+i18n_tooltip: crowdstrike.tooltips.system_extensions
+listing_link: /show/listing/crowdstrike/crowdstrike
+buttons:
+  - label: activated
+    i18n_label: crowdstrike.system_extension_activated_short
+    class: btn-success
+    search_component: sysext_activated
+  - label: present
+    i18n_label: crowdstrike.system_extension_present_short
+    class: btn-info
+    search_component: sysext_present
+  - label: absent
+    i18n_label: crowdstrike.system_extension_absent_short
+    class: btn-danger
+    search_component: sysext_absent
+

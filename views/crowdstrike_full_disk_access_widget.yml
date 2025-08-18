@@ -1,0 +1,20 @@
+type: button
+widget_id: crowdstrike-full-disk-access-button-widget
+api_url: /module/crowdstrike/get_crowdstrike_full_disk_access_button_counts
+i18n_title: crowdstrike.full_disk_access_title
+icon: fa-hdd-o
+listing_link: /show/listing/crowdstrike/crowdstrike
+i18n_tooltip: crowdstrike.tooltips.full_disk_access
+buttons:
+  - label: "granted"
+    i18n_label: yes
+    class: btn-success
+    search_component: full_disk_access_granted_yes
+  - label: "denied"
+    i18n_label: no
+    class: btn-danger
+    search_component: full_disk_access_granted_no
+  - label: "unknown"
+    i18n_label: unknown
+    class: btn-warning
+    search_component: full_disk_access_granted_unknown

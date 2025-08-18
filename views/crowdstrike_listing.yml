@@ -1,0 +1,99 @@
+i18n_title: crowdstrike.listing.title
+not_null_column: crowdstrike.installed
+js_link: module/crowdstrike/js/crowdstrike
+table:
+  - column: machine.computer_name
+    i18n_header: listing.computername
+    formatter: clientDetail
+    tab_link: crowdstrike-tab
+  - column: reportdata.serial_number
+    i18n_header: serial
+  - column: reportdata.long_username
+    i18n_header: username
+  # - column: crowdstrike.sensor_id
+  #   i18n_header: crowdstrike.sensor_id
+  - column: crowdstrike.falcon_global_status
+    i18n_header: crowdstrike.global_status
+    formatter: formatCrowdstrikeGlobalStatus
+    filter: global_status_filter
+
+  # - column: crowdstrike.customer_id
+  #   i18n_header: crowdstrike.customer_id
+  - column: crowdstrike.sensor_active
+    i18n_header: crowdstrike.sensor_active
+    formatter: formatCrowdstrikeBoolean
+    filter: sensor_state
+  - column: crowdstrike.sensor_installguard
+    i18n_header: crowdstrike.sensor_installguard
+    formatter: formatCrowdstrikeBoolean
+    filter: protect_state
+  - column: crowdstrike.system_extension_present
+    i18n_header: crowdstrike.system_extension_present
+    formatter: formatCrowdstrikeBoolean
+    filter: sysext_filter
+  - column: crowdstrike.system_extension_activated
+    i18n_header: crowdstrike.system_extension_activated
+    formatter: formatCrowdstrikeBoolean
+    filter: sysext_filter
+  - column: crowdstrike.falcon_full_disk_access
+    i18n_header: crowdstrike.full_disk_access
+    formatter: formatCrowdstrikeBoolean
+    filter: fda_filter
+  - column: crowdstrike.falcon_system_extension_approved
+    i18n_header: crowdstrike.system_extension_approved
+    formatter: formatCrowdstrikeBoolean
+    filter: sysext_approved_filter
+  - column: crowdstrike.falcon_network_filter_active
+    i18n_header: crowdstrike.network_filter_active
+    formatter: formatCrowdstrikeBoolean
+    filter: network_filter_filter
+  - column: crowdstrike.falcon_web_filter_active
+    i18n_header: crowdstrike.web_filter_active
+    formatter: formatCrowdstrikeBoolean
+    filter: web_filter_filter
+  - column: crowdstrike.falcon_team_id_valid
+    i18n_header: crowdstrike.team_id_valid
+    formatter: formatCrowdstrikeBoolean
+    filter: team_id_filter
+  - column: crowdstrike.falcon_cloud_connected
+    i18n_header: crowdstrike.cloud_connected
+    formatter: formatCrowdstrikeBoolean
+    filter: cloud_filter
+  - column: crowdstrike.falcon_heartbeat_active
+    i18n_header: crowdstrike.heartbeat_active
+    formatter: formatCrowdstrikeBoolean
+    filter: heartbeat_filter
+  - column: crowdstrike.falcon_rfm_status
+    i18n_header: crowdstrike.rfm_status
+    formatter: formatCrowdstrikeRFMStatus
+    filter: rfm_status_filter
+  - column: crowdstrike.falcon_safe_mode
+    i18n_header: crowdstrike.safe_mode
+    formatter: formatCrowdstrikeSafeMode
+    filter: safe_mode_filter
+  - column: crowdstrike.falcon_installation_paths_valid
+    i18n_header: crowdstrike.installation_paths_valid
+    formatter: formatCrowdstrikeBoolean
+    filter: installation_paths_filter
+  - column: crowdstrike.falcon_macos_compatible
+    i18n_header: crowdstrike.macos_compatible
+    formatter: formatCrowdstrikeBoolean
+    filter: macos_compatible_filter
+  - column: crowdstrike.falcon_network_traffic_filtering
+    i18n_header: crowdstrike.network_traffic_filtering
+    formatter: formatCrowdstrikeBoolean
+    filter: network_traffic_filter
+  - column: crowdstrike.falcon_non_removable_extension
+    i18n_header: crowdstrike.non_removable_extension
+    formatter: formatCrowdstrikeBoolean
+    filter: non_removable_filter
+  - column: crowdstrike.installed
+    i18n_header: crowdstrike.installed
+    formatter: formatCrowdstrikeBoolean
+    filter: installed_filter
+  - column: crowdstrike.sensor_version
+    i18n_header: crowdstrike.sensor_version
+  - column: reportdata.timestamp
+    i18n_header: listing.checkin
+    formatter: timestampToMoment
+

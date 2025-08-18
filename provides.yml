@@ -1,21 +1,50 @@
 client_tabs:
     crowdstrike-tab:
         view: crowdstrike_client_tab
-        i18n: crowdstrike.crowdstrike
+        i18n: crowdstrike.title
+        badge: crowdstrike-cnt
+
 listings:
     crowdstrike:
         view: crowdstrike_listing
         i18n: crowdstrike.crowdstrike
+
 reports:
     crowdstrike:
         view: crowdstrike_report
         i18n: crowdstrike.report
+
 widgets:
-    crowdstrike_installguard:
-        view: crowdstrike_installguard_widget
-    crowdstrike_sensor_operational:
-        view: crowdstrike_sensor_operational_widget
+    crowdstrike_uninstall_protection:
+        view: crowdstrike_uninstall_protection_widget
+    crowdstrike_sensor_active:
+        view: crowdstrike_sensor_active_widget
+    crowdstrike_sysext:
+        view: crowdstrike_sysext_widget
     crowdstrike_sensor_versions:
         view: crowdstrike_sensor_versions_widget
     crowdstrike_sensor_versions_graph:
         view: crowdstrike_sensor_versions_graph_widget
+    
+    # Enhanced security and compliance widgets
+    crowdstrike_global_status:
+        view: crowdstrike_global_status_widget
+    crowdstrike_full_disk_access:
+        view: crowdstrike_full_disk_access_widget
+    crowdstrike_rfm_status:
+        view: crowdstrike_rfm_status_widget
+    crowdstrike_system_extension_approved:
+        view: crowdstrike_system_extension_approved_widget
+    crowdstrike_network_filter_active:
+        view: crowdstrike_network_filter_active_widget
+    crowdstrike_web_filter_active:
+        view: crowdstrike_web_filter_active_widget
+    crowdstrike_service_management:
+        view: crowdstrike_service_management_widget
+    crowdstrike_team_id_valid:
+        view: crowdstrike_team_id_valid_widget
+    crowdstrike_cloud_connected:
+        view: crowdstrike_cloud_connected_widget
+    crowdstrike_heartbeat_active:
+        view: crowdstrike_heartbeat_active_widget
+

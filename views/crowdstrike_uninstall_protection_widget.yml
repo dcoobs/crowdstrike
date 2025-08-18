@@ -1,0 +1,21 @@
+type: button
+widget_id: uninstall-protection-widget
+api_url: /module/crowdstrike/get_crowdstrike_installguard_button_counts
+i18n_title: crowdstrike.uninstall_protection_title
+icon: fa-lock
+i18n_tooltip: crowdstrike.tooltips.uninstall_protection
+listing_link: /show/listing/crowdstrike/crowdstrike
+buttons:
+  - label: enabled
+    i18n_label: crowdstrike.enabled
+    class: btn-success
+    search_component: protected
+  - label: disabled
+    i18n_label: crowdstrike.disabled
+    class: btn-danger
+    search_component: notprotected
+  - label: unknown
+    i18n_label: crowdstrike.unknown
+    class: btn-warning
+    search_component: installguard_unknown
+
