@@ -34,7 +34,7 @@ class Crowdstrike_controller extends Module_controller
     public function get_scroll_widget($column)
     {
         // Remove non-column name characters
-        $column = preg_replace("/[^A-Za-z0-9_\-]]/", '', $column);
+        $column = preg_replace("/[^A-Za-z0-9_\-]/", '', $column);
 
         $sql = "SELECT COUNT(CASE WHEN ".$column." <> '' AND ".$column." IS NOT NULL THEN 1 END) AS count, ".$column." 
                     FROM crowdstrike
@@ -57,7 +57,7 @@ class Crowdstrike_controller extends Module_controller
     public function get_button_widget($column)
     {
         // Remove non-column name characters
-        $column = preg_replace("/[^A-Za-z0-9_\-]]/", '', $column);
+        $column = preg_replace("/[^A-Za-z0-9_\-]/", '', $column);
 
         $sql = "SELECT COUNT(1) as total,
                     COUNT(CASE WHEN ".$column." = 1 THEN 1 END) AS 'yes',
